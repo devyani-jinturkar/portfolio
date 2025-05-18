@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Portfolio | Devyani Jinturkar</title>
+    <meta name="description" content="A collection of video projects by Devyani Jinturkar, Social Media Consultant.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Optional: Add Favicon here -->
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
+    <style>
+        /* Additional styles specific to videos.html if needed */
+        .video-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+            gap: 1.5rem;
+            padding-top: 2rem;
+        }
+        .video-item {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--box-shadow-light);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .video-item video {
+            width: 100%;
+            height: auto; /* Or a fixed height like 200px, and object-fit: cover */
+            display: block;
+            background-color: #f0f0f0; /* Placeholder bg */
+        }
+        .video-item-caption {
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+            text-align: center;
+            background-color: var(--white);
+            border-top: 1px solid var(--light-gray-border);
+            margin-top: auto; /* Pushes caption to bottom */
+        }
+        .back-link-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="top-header">
+        <nav class="container">
+            <a href="index.html#hero" class="logo">Devyani Jinturkar</a> <!-- Link back to home page hero -->
+            <ul>
+                <li><a href="index.html#intro">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="videos.html" class="active">Video Portfolio</a></li> <!-- Mark as active -->
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+                <li><a href="index.html#contact-final">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <div class="container">
+                <div class="back-link-container">
+                    <a href="index.html#portfolio" class="cta-button">← Back to Main Portfolio</a>
+                </div>
+
+                <h2 style="text-align: center;">Video Portfolio</h2>
+                <p style="text-align: center; max-width: 700px; margin-left: auto; margin-right:auto; margin-bottom: 2rem;">
+                    Here's a selection of video content created for various clients, showcasing different styles and objectives.
+                </p>
+
+                <div class="video-gallery-grid">
+                    <!-- Video Items -->
+                    <div class="video-item">
+                        <video controls>
+                            <source src="videos/10 Broadmeadows_reel_V2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-item-caption">Broadmeadows Reel V2</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="videos/16 awanui_reel.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-item-caption">Awanui Reel</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="videos/Cash Flow Slipping_Instagram Reel_Maybe.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-item-caption">Cash Flow Slipping Reel</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="videos/Collage reel_velvey (6).mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-item-caption">Velvey Collage Reel</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="videos/Comfortable Wear_Mikenia_Post_Maybe.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-item-caption">Mikenia Comfortable Wear</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="videos/First Bike_Instagram Post.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-item-caption">First Bike Post</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="videos/Healing Journey_Monarch Wellness_Reel _Maybe.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-item-caption">Monarch Wellness Healing Journey</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="videos/Lightweight bikes by strider_Post (1).mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-item-caption">Strider Lightweight Bikes</p>
+                    </div>
+                     <div class="video-item">
+                        <video controls>
+                            <source src="videos/Mikenia_Trending Collection_Instagram Reel (1).mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-item-caption">Mikenia Trending Collection</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="videos/POSTED_Fashionable activewear_Mikenia Reel.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-item-caption">Mikenia Fashionable Activewear</p>
+                    </div>
+                    <div class="video-item">
+                        <video controls>
+                            <source src="videos/Ride with velvey_reel (2).mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-item-caption">Ride with Velvey</p>
+                    </div>
+                     <div class="video-item">
+                        <video controls>
+                            <source src="videos/SCHEDULED_Comfortable ActiveWear_Mikenia Reel.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-item-caption">Mikenia Comfortable Activewear Reel</p>
+                    </div>
+                     <div class="video-item">
+                        <video controls>
+                            <source src="videos/Scheduled_GRWM_Mikenia_Reel.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-item-caption">Mikenia GRWM Reel</p>
+                    </div>
+                     <div class="video-item">
+                        <video controls>
+                            <source src="videos/Self Discovery_Monarch Wellness_Instagram Reel (1).mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-item-caption">Monarch Wellness Self Discovery</p>
+                    </div>
+                     <div class="video-item">
+                        <video controls>
+                            <source src="videos/Velvey Athlete_Insta story (2).mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-item-caption">Velvey Athlete Story</p>
+                    </div>
+                     <div class="video-item">
+                        <video controls>
+                            <source src="videos/Velvey Long_reel (3).mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-item-caption">Velvey Long Reel</p>
+                    </div>
+                    <!-- Add all your other video items here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="current-year-video"></span> Devyani Jinturkar. All rights reserved.</p>
+            <p><a href="#top-header" class="back-to-top">Back to Top ↑</a></p> <!-- This will scroll to top of videos.html -->
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year-video').textContent = new Date().getFullYear();
+
+        // Smooth scroll for "Back to Top" on this page
+        document.querySelector('footer a[href^="#"]').addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Optional: Add simple fade-in for video items if desired
+        const videoItems = document.querySelectorAll('.video-item');
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    videoObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        videoItems.forEach(item => {
+            item.style.opacity = '0'; // Initial state for animation
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+            videoObserver.observe(item);
+        });
+    </script>
+
+</body>
+</html>

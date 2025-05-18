@@ -12,9 +12,18 @@
     --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     --box-shadow-light: 0 2px 8px rgba(0, 0, 0, 0.05);
 
-    --font-primary: 'Open Sans', sans-serif;
-    --font-secondary: 'Montserrat', sans-serif;
+    --font-primary: 'Open Sans', sans-serif; /* Body text */
+    --font-secondary: 'Montserrat', sans-serif; /* Headings */
 }
+#top-header nav ul li a.active {
+    color: var(--accent-color); /* Or any other style to indicate active */
+    font-weight: 700; /* Example: make it bolder */
+}
+
+#top-header nav ul li a.active::after {
+    width: 100%; /* Ensure underline effect is also active */
+}
+
 
 * {
     margin: 0;
@@ -51,7 +60,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
-h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); } /* Responsive font size */
+h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); }
 h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 1em; }
 h3 { font-size: clamp(1.2rem, 3vw, 1.5rem); }
 
@@ -70,7 +79,7 @@ a:hover {
     text-decoration: underline;
 }
 
-img {
+img, video { /* Combined img and video */
     max-width: 100%;
     height: auto;
     display: block;
@@ -84,14 +93,14 @@ ul {
 #top-header {
     background: var(--white);
     padding: 1rem 0;
-    position: sticky;
+    position: sticky; /* Changed from fixed to sticky */
     top: 0;
     z-index: 1000;
     box-shadow: var(--box-shadow-light);
     border-bottom: 1px solid var(--light-gray-border);
 }
 
-#top-header .container {
+#top-header .container { /* Use the existing container class */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -106,6 +115,7 @@ ul {
 }
 #top-header .logo:hover {
     color: var(--accent-color);
+    text-decoration: none; /* Remove underline from logo on hover */
 }
 
 #top-header nav ul {
@@ -142,26 +152,31 @@ ul {
     text-decoration: none;
 }
 
+/* --- Main Content Padding (No longer needed if header is sticky and not fixed overlaying content) --- */
+/* main {
+    padding-top: var(--header-height);
+} */
 
 /* --- Hero Section --- */
 .hero-section {
     background-color: var(--pastel-blue-teal);
     color: var(--heading-text); /* Darker text for better contrast on light pastel */
-    min-height: 70vh;
+    min-height: 70vh; /* Maintain min-height for presence */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 4rem 0;
+    padding: 4rem 15px; /* Add horizontal padding to hero-section itself */
 }
 
-.hero-content {
+.hero-content { /* This class is in your HTML */
     max-width: 800px;
+    /* No need for margin-left/right auto if hero-section is text-align: center */
 }
 
 .hero-section h1 {
     font-weight: 700;
-    color: var(--heading-text);
+    color: var(--heading-text); /* Already set by h1 general style, but explicit is fine */
 }
 
 .hero-section .subtitle {
@@ -175,20 +190,22 @@ ul {
 .cta-button {
     display: inline-block;
     background-color: var(--accent-color);
-    color: var(--white);
+    color: var(--white) !important; /* Ensure text is white */
     padding: 0.8em 1.8em;
     font-family: var(--font-secondary);
     font-weight: 600;
     font-size: 1rem;
     border-radius: 25px; /* Pill shape */
     text-decoration: none;
+    border: none; /* Remove default border for button elements */
+    cursor: pointer; /* For button elements */
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
 .cta-button:hover {
     background-color: var(--accent-hover);
-    color: var(--white);
+    color: var(--white) !important;
     text-decoration: none;
     transform: translateY(-2px);
 }
@@ -205,12 +222,14 @@ ul {
 .content-section.alt-bg {
     background-color: var(--pastel-peach-cream);
 }
-.intro-section {
+
+/* --- Intro Section Specific --- */
+#intro.intro-section { /* Target by ID for specificity if needed */
     background-color: var(--content-bg); /* Subtle off-white */
 }
 
 .intro-section h2 {
-    text-align: center;
+    text-align: center; /* As per your style for this section */
     margin-bottom: 1.5em;
 }
 
@@ -219,12 +238,13 @@ ul {
     font-weight: 600;
     color: var(--heading-text);
     text-align: center;
-    margin-top: 2em;
+    margin: 2em auto 0.5em; /* Center block element */
     padding: 1em;
     background-color: var(--white);
     border-left: 4px solid var(--accent-color);
     border-radius: 4px;
     box-shadow: var(--box-shadow-light);
+    max-width: 700px; /* Constrain width */
 }
 
 .intro-section .contact-info {
@@ -232,15 +252,19 @@ ul {
     font-size: 1.1em;
     margin-top: 1.5em;
 }
+.intro-section .contact-info a {
+    font-weight: 600;
+}
 
 
-/* --- Services Snapshot --- */
+/* --- Services Snapshot Section --- */
 .services-section h2 {
     text-align: center;
 }
 .services-list {
-    max-width: 800px;
-    margin: 2em auto 0;
+    max-width: 800px; /* Constrain width */
+    margin: 2em auto 0; /* Center the list */
+    padding-left: 0; /* Override default ul padding */
 }
 
 .services-list li {
@@ -265,19 +289,20 @@ ul {
     font-size: 1.1em;
 }
 
-/* --- Portfolio Highlights --- */
-.portfolio-section h2 {
+/* --- Portfolio Highlights (Text-based Grid) --- */
+/* The HTML has two sections with id="portfolio". Assuming this targets the text grid. */
+.portfolio-section h2 { /* This is for "Portfolio Highlights" */
     text-align: center;
 }
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2em;
-    margin-top: 2em;
+    margin-top: 2em; /* Space from section title */
 }
 
 .portfolio-item {
-    background-color: var(--white);
+    background-color: var(--white); /* From your style */
     padding: 2em 1.5em;
     border-radius: 8px;
     box-shadow: var(--box-shadow);
@@ -292,25 +317,142 @@ ul {
     box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
-.portfolio-icon {
-    font-size: 2.5rem; /* Adjust size as needed */
+.portfolio-icon { /* Class for emoji/icon in text portfolio */
+    font-size: 2.5rem;
     margin-bottom: 0.75em;
     color: var(--accent-color);
-    /* If using actual icons/images, style them here */
 }
 
 .portfolio-item h3 {
-    color: var(--accent-color);
+    color: var(--accent-color); /* As per your style */
     margin-bottom: 0.5em;
+    font-size: 1.2rem; /* Example size */
 }
-.portfolio-note {
+.portfolio-item p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+
+/* ---- Portfolio Gallery Scroller Styles ---- */
+.portfolio-gallery-title { /* This is for "Visual Portfolio" */
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    color: var(--heading-text);
+}
+
+.portfolio-gallery-scroller {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden; /* Prevent vertical scrollbar if items have different heights slightly */
+    gap: 20px; /* Space between gallery items */
+    padding: 20px 5px; /* Vertical padding, minimal horizontal padding on scroller itself */
+    scroll-snap-type: x mandatory; /* Optional: for snap scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: var(--accent-color) var(--content-bg); /* Thumb and track color */
+
+    /* For potential full-bleed effect, if container has padding: */
+    /* margin-left: -15px; /* Adjust to match negative of container's padding-left */
+    /* margin-right: -15px; /* Adjust to match negative of container's padding-right */
+    /* padding-left: 15px; /* Add back for first item */
+    /* padding-right: 15px; /* Add back for last item */
+}
+
+/* For Webkit browsers (Chrome, Safari, Edge) */
+.portfolio-gallery-scroller::-webkit-scrollbar {
+    height: 10px;
+}
+.portfolio-gallery-scroller::-webkit-scrollbar-track {
+    background: var(--content-bg);
+    border-radius: 10px;
+}
+.portfolio-gallery-scroller::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    border-radius: 10px;
+    border: 2px solid var(--content-bg); /* Creates padding around thumb */
+}
+
+.gallery-item {
+    flex: 0 0 auto; /* Prevents shrinking, items maintain their width */
+    width: 300px; /* Default width */
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow-light);
+    overflow: hidden; /* Important for rounded corners and object-fit */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow); /* Slightly stronger shadow on hover */
+}
+
+.gallery-item video,
+.gallery-item img {
+    width: 100%;
+    height: 200px; /* Fixed height for the media element */
+    object-fit: cover; /* Cover ensures the media fills the space, may crop */
+    display: block; /* Removes extra space below inline elements */
+    border-bottom: 1px solid var(--light-gray-border); /* As per your style */
+    background-color: var(--content-bg); /* Fallback/loading background */
+}
+
+.gallery-item-caption {
+    padding: 12px 15px;
+    font-size: 0.85em;
+    color: var(--dark-text);
+    text-align: center;
+    background-color: var(--white); /* Ensure caption bg is white if item bg is different */
+    margin-top: auto; /* Pushes caption to bottom if media content varies slightly */
+    min-height: 45px; /* Ensure consistent height */
+    display: flex; /* For vertical centering of text */
+    align-items: center;
+    justify-content: center;
+    line-height: 1.3;
+}
+
+/* Specific styling for PDF item in gallery */
+.gallery-item-doc a {
+    text-decoration: none;
+    color: inherit; /* Inherit text color from parent */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; /* Use space-around or center based on desired look */
+    height: 100%; /* Make the link fill the .gallery-item-doc */
+    padding: 15px; /* Internal padding for the link content */
+}
+.gallery-item-doc img { /* The PDF icon image */
+    width: 50px; /* Size for PDF icon */
+    height: 50px;
+    object-fit: contain;
+    border-bottom: none; /* Override general border for media */
+    margin-bottom: 10px; /* Space between icon and its text */
+}
+.gallery-item-doc p.gallery-item-caption { /* Targeting the caption within the PDF item's link */
+    font-size: 0.85em;
+    color: var(--dark-text);
+    text-align: center;
+    margin-bottom: 0; /* Remove default p margin */
+    line-height: 1.3;
+    border-top: none; /* Remove top border if it was applied to all captions */
+    min-height: auto; /* Override min-height if it causes issues for PDF caption */
+    padding: 0; /* Remove padding if handled by <a> */
+}
+
+.portfolio-note { /* Note below portfolio sections */
     text-align: center;
     margin-top: 2.5em;
     font-size: 0.9em;
-    color: #777;
+    color: #777; /* A neutral gray */
 }
 
-/* --- Client Feedback / Testimonials --- */
+
+/* --- Client Feedback / Testimonials Section --- */
 .testimonials-section h2 {
     text-align: center;
 }
@@ -338,18 +480,18 @@ ul {
     font-style: italic;
     margin-bottom: 1em;
     position: relative;
-    padding-left: 1.5em;
+    padding-left: 1.5em; /* Space for quote mark */
     color: var(--dark-text);
 }
 
 .testimonial-card blockquote::before {
     content: '“';
-    font-family: Georgia, serif;
+    font-family: Georgia, serif; /* Common for quotes */
     font-size: 3em;
     color: var(--pastel-blue-teal);
     position: absolute;
-    left: -0.1em;
-    top: -0.2em;
+    left: -0.1em; /* Adjust positioning */
+    top: -0.2em;  /* Adjust positioning */
     line-height: 1;
 }
 
@@ -363,14 +505,15 @@ ul {
 }
 
 
-/* --- Final CTA Section --- */
+/* --- Final Call-to-Action Section --- */
 .cta-final-section {
-    background-color: var(--pastel-blue-teal); /* Using the other pastel for variety */
+    background-color: var(--pastel-blue-teal); /* Using one of your pastels */
     padding: 4rem 0;
+    text-align: center; /* Ensure container content is centered if .text-center is on container */
 }
 
-.cta-final-section .container.text-center {
-    text-align: center;
+.cta-final-section .container.text-center { /* If you have this class on the container */
+    /* text-align: center; is already applied by .text-center utility */
 }
 
 .cta-final-section h2 {
@@ -380,19 +523,31 @@ ul {
     color: var(--dark-text);
     margin-bottom: 1.5em;
     font-size: 1.1em;
+    max-width: 700px; /* Constrain paragraph width */
+    margin-left: auto;
+    margin-right: auto;
+}
+.cta-final-section .cta-button { /* Style CTA button if it's different here */
+    /* It will inherit global .cta-button styles unless overridden */
 }
 .contact-info-final {
-    margin-top: 1.5em !important;
+    margin-top: 1.5em !important; /* Using important as per your style */
     font-size: 1em !important;
 }
 .contact-info-final a {
     font-weight: 600;
+    /* Color will be var(--accent-color) by default */
+}
+
+/* Utility class if needed, though sections are already centered */
+.text-center {
+    text-align: center;
 }
 
 /* --- Footer --- */
 footer {
     background-color: var(--heading-text); /* Dark footer */
-    color: #bdc3c7; /* Light gray text */
+    color: #bdc3c7; /* Light gray text for contrast */
     text-align: center;
     padding: 2rem 0;
     font-size: 0.9em;
@@ -401,58 +556,62 @@ footer {
 footer p {
     margin-bottom: 0.5em;
 }
+footer p:last-child {
+    margin-bottom: 0;
+}
 
 footer a {
     color: var(--pastel-blue-teal); /* Light link color on dark bg */
     text-decoration: none;
 }
-
 footer a:hover {
     color: var(--white);
     text-decoration: underline;
 }
 
 /* --- Animation Helper (for JS Intersection Observer) --- */
-.content-section h2,
-.portfolio-item,
+.content-section h2, /* Apply to section titles */
+.portfolio-item, /* Apply to text portfolio items */
 .testimonial-card,
-.services-list li {
+.services-list li,
+.gallery-item { /* Apply to visual portfolio items */
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(30px); /* Start slightly lower */
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .content-section h2.visible,
 .portfolio-item.visible,
 .testimonial-card.visible,
-.services-list li.visible {
+.services-list li.visible,
+.gallery-item.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0); /* Move to original position */
 }
 
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
     html {
-        font-size: 15px;
+        font-size: 15px; /* Slightly smaller base for tablets */
     }
 
     #top-header .container {
-        flex-direction: column;
-        gap: 0.5rem;
+        flex-direction: column; /* Stack logo and nav */
+        gap: 0.5rem; /* Space between logo and nav block */
     }
     #top-header nav ul {
-        flex-wrap: wrap;
+        flex-wrap: wrap; /* Allow nav items to wrap */
         justify-content: center;
-        gap: 10px 15px; /* smaller gap for mobile nav */
+        gap: 10px 15px; /* Row and column gap for nav items */
     }
      #top-header nav ul li a {
-        padding: 0.3em 0.5em;
+        padding: 0.3em 0.5em; /* Adjust padding for smaller touch targets */
     }
 
     .hero-section {
-        min-height: auto;
-        padding: 3rem 0;
+        min-height: auto; /* Allow hero to shrink */
+        padding: 3rem 15px;
     }
 
     .content-section {
@@ -461,16 +620,33 @@ footer a:hover {
 
     .portfolio-grid,
     .testimonial-grid {
-        grid-template-columns: 1fr; /* Stack items on smaller screens */
+        grid-template-columns: 1fr; /* Stack items */
+    }
+
+    /* Responsive for Gallery Scroller */
+    .gallery-item {
+        width: 260px; /* Smaller width on tablets */
+    }
+    .gallery-item video,
+    .gallery-item img {
+        height: 170px; /* Adjust media height */
+    }
+    .portfolio-gallery-scroller {
+        /* Adjust margins if using full-bleed effect, otherwise remove/comment out */
+        /* margin-left: -5px;
+        margin-right: -5px;
+        padding-left: 5px;
+        padding-right: 5px; */
     }
 }
 
 @media (max-width: 480px) {
     html {
-        font-size: 14px;
+        font-size: 14px; /* Smaller base for mobile */
     }
-    .cta-button {
-        width: 100%;
+    .cta-button { /* Make CTAs full-width for easier tapping */
+        /* display: block; Remove if you prefer inline-block and want to control width via parent */
+        /* width: 100%; */ /* Removed for now, can be too aggressive. Let it size by content or set max-width. */
         padding: 0.8em 1em;
         font-size: 0.95rem;
     }
@@ -479,6 +655,38 @@ footer a:hover {
         font-size: 1rem;
     }
     #top-header nav ul {
-        font-size: 0.9rem;
+        font-size: 0.9rem; /* Smaller nav text */
+        gap: 8px 10px;
     }
+    #top-header nav ul li a {
+        padding: 0.2em 0.4em;
+    }
+
+
+    /* Responsive for Gallery Scroller on small mobile */
+    .gallery-item {
+        width: 220px; /* Even smaller on mobile */
+    }
+    .gallery-item video,
+    .gallery-item img {
+        height: 140px; /* Adjust media height */
+    }
+    .portfolio-gallery-title {
+        font-size: clamp(1.3rem, 3vw, 1.7rem);
+    }
+
+    /* Example of trying to make scroller appear "full bleed" if container has padding */
+    /* This can be tricky and highly dependent on exact container padding and box-sizing */
+    /*
+    .portfolio-gallery-scroller {
+        padding-left: 15px; // Match .container padding
+        padding-right: 15px; // Match .container padding
+        margin-left: calc(-1 * ( (100vw - (100% - 30px) ) / 2 ) );
+        margin-right: calc(-1 * ( (100vw - (100% - 30px) ) / 2 ) );
+        // Simpler version if container padding is fixed 15px on each side:
+        // margin-left: -15px;
+        // margin-right: -15px;
+    }
+    */
+    /* If strict containment within .container is preferred, ensure no negative margins on .portfolio-gallery-scroller */
 }
