@@ -199,7 +199,7 @@ h2 {
 
 /* hero */
 .hero {
-  padding: 72px 0 96px;
+  padding: 64px 0;
 }
 
 .hero-eyebrow {
@@ -217,10 +217,10 @@ h2 {
 
 .hero-row {
   display: grid;
-  grid-template-columns: 1fr 300px;
-  align-items: end;
+  grid-template-columns: 1fr 280px;
+  align-items: start;
   gap: 48px;
-  margin-top: 40px;
+  margin-top: 32px;
 }
 
 .hero-copy {
@@ -236,6 +236,7 @@ h2 {
 .hero-media {
   width: 100%;
   aspect-ratio: 9 / 16;
+  max-height: 380px;
   border: 1px solid var(--border);
   overflow: hidden;
   margin-bottom: -8px;
@@ -287,7 +288,7 @@ h2 {
   .testimonials,
   .cta,
   .services {
-    padding: 56px 0;
+    padding: 44px 0;
   }
 
   .section-head {
@@ -297,7 +298,7 @@ h2 {
 
 /* portfolio / stats */
 .portfolio {
-  padding: 96px 0;
+  padding: 72px 0;
 }
 
 .stat-list {
@@ -336,7 +337,7 @@ h2 {
   display: grid;
   grid-template-columns: 1fr 280px;
   gap: 48px;
-  align-items: center;
+  align-items: start;
 }
 
 .results-body .hero-sub {
@@ -358,7 +359,7 @@ h2 {
 
 /* our work */
 .work {
-  padding: 96px 0;
+  padding: 72px 0;
 }
 
 .video-grid {
@@ -377,7 +378,8 @@ h2 {
 .video-card video {
   display: block;
   width: 100%;
-  max-height: 380px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
   background: #000;
   pointer-events: none;
 }
@@ -394,7 +396,7 @@ h2 {
 
 /* testimonials */
 .testimonials {
-  padding: 96px 0;
+  padding: 72px 0;
 }
 
 .quote-list {
@@ -499,7 +501,7 @@ h2 {
 
 /* cta */
 .cta {
-  padding: 96px 0;
+  padding: 72px 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
@@ -515,7 +517,7 @@ h2 {
 
 /* services */
 .services {
-  padding: 96px 0;
+  padding: 72px 0;
 }
 
 .service-list {
