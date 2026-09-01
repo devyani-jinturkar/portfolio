@@ -1,0 +1,12 @@
+{
+  "name": "Devyani Jinturkar — Social Media Marketing",
+  "short_name": "Devyani Jinturkar",
+  "description": "Social media marketing and management for founders, creators and brands.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#fbf7f0",
+  "theme_color": "#fbf7f0",
+  "icons": [
+    { "src": "/assets/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
