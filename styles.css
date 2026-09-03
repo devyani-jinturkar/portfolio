@@ -1,11 +1,25 @@
 :root {
-  --bg: #fbf7f0;
-  --ink: #17140f;
-  --muted: #6f6656;
-  --accent: #ff9764;
-  --accent-dark: #c2531f;
-  --border: #ddd2bf;
+  /* Brand palette (Canva kit) */
+  --lime: #ecf2aa;
+  --orange: #ff9b6a;
+  --periwinkle: #d8e7ff;
+  --blush: #ffe5d8;
+  --butter: #fdffe4;
+  --lavender: #e7eefa;
+
+  /* Applied roles */
+  --bg: #fdfdf4;
+  --ink: #201b15;
+  --muted: #605848;
+  --accent: #ff9b6a;
+  --accent-dark: #a24917;
+  --border: #e8e3d3;
   --max-width: 1160px;
+}
+
+::selection {
+  background: var(--lime);
+  color: var(--ink);
 }
 
 * {
@@ -300,6 +314,7 @@ h2 {
 /* portfolio / stats */
 .portfolio {
   padding: 72px 0;
+  background: var(--blush);
 }
 
 .stat-grid {
@@ -498,23 +513,38 @@ h2 {
 
 /* cta */
 .cta {
-  padding: 72px 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  padding: 96px 0;
+  background: var(--orange);
+  color: var(--ink);
 }
 
 .cta h2 {
-  max-width: 14ch;
+  max-width: 16ch;
   margin: 0 auto 12px;
+  color: var(--ink);
 }
 
 .cta .hero-sub {
   margin-bottom: 32px;
+  color: color-mix(in srgb, var(--ink) 72%, transparent);
+}
+
+.cta .btn-solid {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+
+.cta .btn-solid:hover {
+  background: var(--bg);
+  color: var(--ink);
+  border-color: var(--bg);
 }
 
 /* services */
 .services {
   padding: 72px 0;
+  background: var(--periwinkle);
 }
 
 .service-list {
@@ -551,6 +581,7 @@ h2 {
 /* footer */
 .site-footer {
   padding: 56px 0 28px;
+  background: var(--lavender);
   border-top: 1px solid var(--border);
 }
 
