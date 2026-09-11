@@ -18,10 +18,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#FDFFE4">
+<meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <!-- TODO (Devyani): add /assets/og-cover.png (1200x630) for social share previews;
      add real LinkedIn / Instagram URLs into "sameAs" below. -->
 <script type="application/ld+json">
@@ -62,302 +62,371 @@
 </script>
 <style>
   :root{
-    --linen:#FDFFE4; --linen-deep:#F3F6D4; --ink:#15120F; --ink-soft:#43442F;
-    --slate:#8A8770; --border:#DCE0C0; --rust:#7C3030; --rust-deep:#5C2222;
-    --serif:"Fraunces", Georgia, serif; --sans:"Inter", "Helvetica Neue", Arial, sans-serif;
+    --paper:#ffffff; --ink:#0a0a0a; --grey:#8a8a8a; --line:#e7e7e7; --red:#FF5A1F;
+    --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --sans:"Outfit","Helvetica Neue",Arial,sans-serif;
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth; scroll-padding-top:86px}
-  body{background:var(--linen); color:var(--ink); font-family:var(--sans); line-height:1.5; -webkit-font-smoothing:antialiased}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper); color:var(--ink); font-family:var(--sans); line-height:1.5; -webkit-font-smoothing:antialiased}
   img,video{max-width:100%; display:block}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--rust-deep); outline-offset:3px}
-  .wrap{max-width:1240px; margin:0 auto; padding-inline:clamp(24px,5vw,64px)}
-  section{padding-block:clamp(60px,8vw,96px)}
-  section + section{border-top:1px solid var(--border)}
+  a{color:inherit}
+  ::selection{background:var(--red); color:#fff}
 
-  header{position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:20px clamp(24px,5vw,64px); background:var(--linen); border-bottom:1px solid var(--border)}
-  .word{font-family:var(--serif); font-weight:600; font-size:1.15rem; color:var(--ink); text-decoration:none}
-  nav{display:flex; gap:clamp(20px,3vw,44px)}
-  nav a{color:var(--ink); text-decoration:none; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; font-weight:600}
-  nav a.cta-link{color:var(--rust)}
+  .btn{display:inline-flex; align-items:center; gap:.6em; background:var(--red); color:#fff; font-family:var(--sans); font-weight:600; text-transform:uppercase; letter-spacing:.1em; font-size:.74rem; padding:16px 26px; text-decoration:none; border:1px solid var(--red); transition:background .2s,color .2s; white-space:nowrap}
+  .btn:hover{background:transparent; color:var(--red)}
+  .btn--ghostlight{background:transparent; border-color:#fff; color:#fff}
+  .btn--ghostlight:hover{background:#fff; color:var(--ink)}
 
-  .hero{padding-block:clamp(56px,9vw,104px) clamp(40px,7vw,72px)}
-  .hero-grid{display:grid; grid-template-columns:1.3fr 0.7fr; gap:clamp(24px,4vw,64px); align-items:end}
-  .eyebrow{display:block; font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:var(--rust); font-weight:700; margin-bottom:22px}
-  h1.headline{font-family:var(--serif); font-weight:600; font-size:clamp(2.2rem,4.9vw,4.3rem); line-height:1.03; letter-spacing:-0.015em; max-width:26ch}
-  h1.headline em{font-style:normal; font-weight:600; color:var(--rust-deep)}
-  .hero-side{border-left:1px solid var(--border); padding-left:clamp(20px,3vw,36px)}
-  .hero-side p{font-size:1rem; color:var(--ink-soft); max-width:40ch; margin-bottom:24px; text-wrap:pretty}
-  .btn{display:inline-flex; align-items:center; gap:.5em; background:var(--rust); color:var(--linen); text-decoration:none; font-size:.8rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:14px 24px; border:1px solid var(--rust); transition:background .2s, color .2s}
-  .btn:hover{background:transparent; color:var(--rust)}
-  .hero-foot{margin-top:clamp(32px,5vw,56px); padding-top:20px; border-top:1px solid var(--border); display:flex; flex-wrap:wrap; gap:12px 36px; justify-content:space-between}
-  .hero-foot .locales{font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); font-weight:400}
-  .hero-foot .locales b{color:var(--ink-soft); font-weight:600}
+  .eyebrow{font-family:var(--sans); font-weight:500; text-transform:uppercase; letter-spacing:.2em; font-size:.68rem; color:var(--grey)}
 
-  /* section label pattern */
-  .section-label{display:flex; align-items:baseline; gap:16px; margin-bottom:clamp(24px,4vw,40px)}
-  .section-label .idx{font-family:var(--serif); font-size:.85rem; color:var(--slate)}
-  .section-label h2{font-family:var(--serif); font-weight:500; font-size:clamp(1.6rem,3vw,2.4rem); letter-spacing:-0.01em}
-  .section-label .cnt{margin-left:auto; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--slate); font-weight:600; align-self:center}
+  /* nav */
+  .scroll-progress{position:fixed; top:0; left:0; width:100%; height:3px; background:var(--red); transform-origin:0 50%; transform:scaleX(0); z-index:80; pointer-events:none}
+  .nav{position:sticky; top:0; z-index:60; display:flex; align-items:center; justify-content:space-between; padding:16px clamp(18px,5vw,48px); background:rgba(255,255,255,.88); backdrop-filter:blur(10px); border-bottom:1px solid var(--line)}
+  .nav .wm{font-family:var(--display); font-weight:800; text-transform:uppercase; letter-spacing:-0.01em; font-size:1rem; text-decoration:none}
+  .nav nav{display:flex; gap:clamp(16px,3vw,38px); align-items:center}
+  .nav nav a{font-family:var(--sans); font-weight:500; text-transform:uppercase; letter-spacing:.16em; font-size:.66rem; text-decoration:none}
+  .nav nav a.cta{color:var(--red)}
+  @media (max-width:680px){ .nav nav a:not(.cta){display:none} }
 
-  /* dense video grid (full portfolio, deferred to bottom of page) */
-  .grid{display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(14px,2vw,24px)}
-  .tile{margin:0}
-  .tile .tile-vid{aspect-ratio:9/16; overflow:hidden; border-radius:10px; background:var(--linen-deep)}
-  .tile video{display:block; width:100%; height:100%; object-fit:cover}
-  .tile figcaption{margin-top:12px; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; font-weight:600; color:var(--ink)}
-  .tile figcaption .tag{display:block; margin-top:3px; font-size:.62rem; font-weight:500; letter-spacing:.1em; color:var(--slate)}
+  /* hero */
+  .hero{min-height:calc(90vh - 53px); display:flex; flex-direction:column; justify-content:space-between; padding:clamp(40px,9vh,110px) clamp(18px,5vw,48px) clamp(30px,6vh,60px)}
+  .hero-top{display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap}
+  .hero h1{font-family:var(--display); font-weight:800; text-transform:uppercase; font-size:clamp(2.9rem,11vw,9.5rem); line-height:.88; letter-spacing:-0.03em; margin:clamp(28px,6vh,64px) 0}
+  .hero h1 .r{color:var(--red)}
+  .hero-bottom{display:flex; justify-content:space-between; align-items:flex-end; gap:28px 40px; flex-wrap:wrap}
+  .hero-bottom p{max-width:40ch; font-family:var(--sans); font-weight:300; font-size:clamp(1rem,1.4vw,1.15rem); color:#333}
 
-  /* highlights: two compiled videos, equal, aligned */
-  .highlights{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-items:start; gap:clamp(20px,3vw,40px)}
-  .highlight{position:relative}
-  .highlight .frame{aspect-ratio:9/16; overflow:hidden; border-radius:14px; background:transparent}
-  .highlight video{display:block; width:100%; height:100%; object-fit:cover; transform:scale(1.045)}
-  .highlights-note{margin-top:clamp(32px,6vw,56px); font-size:.82rem; color:var(--slate)}
-  .highlights-note a{color:var(--rust); font-weight:600; text-decoration:none; border-bottom:1px solid var(--rust)}
-
-  /* numbers strip: horizontal band, 4 across */
-  .stats{display:grid; grid-template-columns:repeat(4,1fr); border-block:1px solid var(--ink)}
-  .stat{padding:26px clamp(16px,2vw,28px) 30px}
-  .stat + .stat{border-left:1px solid var(--border)}
-  .stat:first-child{padding-left:0}
-  .stat:last-child{padding-right:0}
-  .stat .fig{display:block; font-family:var(--sans); font-weight:600; font-size:clamp(2.2rem,3.6vw,3.1rem); line-height:1; color:var(--rust-deep); letter-spacing:-0.03em; font-variant-numeric:lining-nums}
-  .stat .desc{margin-top:10px; font-size:.86rem; line-height:1.45; color:var(--ink-soft)}
-
-  /* logo wall */
-  .wall{overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,#000 64px,#000 calc(100% - 64px),transparent); mask-image:linear-gradient(90deg,transparent,#000 64px,#000 calc(100% - 64px),transparent)}
-  .wall-row{display:flex; align-items:center; gap:clamp(48px,6vw,80px); width:max-content; padding:22px 0}
-  .wall-row.a{animation:scrollL 40s linear infinite}
-  .wall:hover .wall-row{animation-play-state:paused}
-  @keyframes scrollL{from{transform:translateX(0)} to{transform:translateX(-50%)}}
-  .wall-row img{height:56px; width:auto; max-width:200px; object-fit:contain; opacity:.92}
-  @media (prefers-reduced-motion: reduce){ .wall-row.a{animation:none} }
-
-  /* testimonials: static, two-up, hairline-separated */
-  .quotes{display:flex; flex-wrap:wrap; gap:0 clamp(32px,5vw,72px)}
-  .quote{flex:1 1 320px; padding:26px 0 30px; border-top:1px solid var(--border)}
-  .quote .rating{color:var(--rust); font-size:.82rem; letter-spacing:.18em; margin-bottom:12px}
-  .quote blockquote{font-family:var(--serif); font-size:1.15rem; line-height:1.5; color:var(--ink); max-width:44ch}
-  .quote figcaption{margin-top:16px; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--slate); font-weight:600}
-  .quote figcaption .via{display:block; margin-top:5px; font-weight:500; letter-spacing:.06em; color:var(--slate); opacity:.8}
-
-  .cta-band{background:var(--rust-deep); color:var(--linen); text-align:center; border-top:0}
-  .cta-band h2{font-family:var(--serif); font-weight:500; font-size:clamp(2rem,4vw,3.4rem); letter-spacing:-0.01em; margin:0 auto 16px; max-width:20ch}
-  .cta-band p{color:#E7D6CC; margin-bottom:30px}
-  .cta-band .btn{background:var(--linen); border-color:var(--linen); color:var(--rust-deep)}
-  .cta-band .btn:hover{background:transparent; color:var(--linen); border-color:var(--linen)}
-
-  footer{padding-block:44px 56px; display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px; color:var(--slate); font-size:.78rem}
-  footer a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--rust)}
-  footer .fine{font-size:.72rem}
-
-  @media (max-width:900px){
-    .hero-grid{grid-template-columns:1fr}
-    .hero-side{border-left:0; padding-left:0; border-top:1px solid var(--border); padding-top:22px; margin-top:6px}
-    .grid{grid-template-columns:repeat(2,1fr)}
-    .stats{grid-template-columns:1fr 1fr}
-    .stat + .stat{border-left:0}
-    .stat:nth-child(even){border-left:1px solid var(--border)}
-    .stat:nth-child(n+3){border-top:1px solid var(--border)}
-    .stat:first-child,.stat:nth-child(3){padding-left:0}
-    .stat:nth-child(2),.stat:last-child{padding-right:0}
-    nav{gap:16px}
-    nav a{font-size:.62rem}
+  /* portfolio highlights band — two whole reels, big label beneath, full-bleed black */
+  .reel{background:#000; border-top:1px solid #222; padding:clamp(48px,7vw,100px) 0 clamp(44px,6vw,80px)}
+  .reel-row{display:flex; align-items:center; justify-content:center; gap:clamp(20px,3.5vw,56px)}
+  .reel figure{margin:0; flex:none; height:min(88vh,940px,48vw); aspect-ratio:1620/1920; overflow:hidden; line-height:0; background:#000}
+  .reel video{width:100%; height:100%; object-fit:cover; display:block}
+  .reel-label{flex:none; font-family:var(--display); font-weight:800; text-transform:uppercase; letter-spacing:.02em; color:#fff; text-align:center;
+    writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; font-size:clamp(1.6rem,3vw,3.2rem); line-height:1.05}
+  .reel-label span{color:var(--red)}
+  @media (max-width:860px){
+    .reel-row{flex-direction:column; align-items:center; gap:clamp(22px,6vw,34px); padding-inline:clamp(16px,5vw,32px)}
+    .reel figure{height:74vh}
+    .reel-label{writing-mode:horizontal-tb; transform:none; font-size:clamp(2.2rem,9vw,3.4rem); padding:clamp(6px,2vw,14px) 0}
   }
-  @media (max-width:680px){
-    .highlights{gap:12px}
-    nav a:not(.cta-link){display:none}
+
+  /* work blocks — whole reel on a black gallery field */
+  .wb{display:grid; grid-template-columns:auto 1fr; min-height:86vh; background:var(--ink); color:#fff; border-top:1px solid #222}
+  .wb:nth-child(even){grid-template-columns:1fr auto}
+  .wb-media{overflow:hidden; display:flex; align-items:center; justify-content:center; line-height:0; background:var(--ink)}
+  .wb-media .vidbox{flex:none; height:min(82vh,820px); aspect-ratio:9/16; width:auto; overflow:hidden}
+  .wb-media video{width:100%; height:100%; object-fit:cover; display:block}
+  .wb:nth-child(even) .wb-media{order:2}
+  .wb-text{display:flex; flex-direction:column; justify-content:flex-end; padding:clamp(40px,6vw,88px); gap:clamp(28px,4vw,44px)}
+  .wb-head{display:flex; flex-direction:column; gap:clamp(16px,2.2vw,28px)}
+  .wb-idx{font-family:var(--display); font-weight:800; font-size:clamp(2.1rem,4vw,3.4rem); line-height:.8; color:var(--red); letter-spacing:-0.02em}
+  .wb-name{font-family:var(--display); font-weight:800; text-transform:uppercase; font-size:clamp(2.7rem,6.4vw,6rem); line-height:.88; letter-spacing:-0.03em; text-wrap:balance; color:#fff}
+  .wb-foot{display:flex; flex-direction:column; gap:12px; margin-top:clamp(40px,7vw,88px); padding-top:clamp(22px,3vw,32px); border-top:1px solid rgba(255,255,255,.24); max-width:60ch}
+  .wb-meta{font-family:var(--sans); font-weight:400; font-size:clamp(1rem,1.4vw,1.2rem); color:rgba(255,255,255,.82)}
+  .wb-tag{font-family:var(--sans); font-weight:500; text-transform:uppercase; letter-spacing:.18em; font-size:.68rem; color:rgba(255,255,255,.55)}
+  @media (max-width:860px){
+    .wb, .wb:nth-child(even){grid-template-columns:1fr; min-height:0}
+    .wb:nth-child(even) .wb-media{order:0}
+    .wb-media .vidbox{height:70vh; aspect-ratio:9/16; width:auto}
+    .wb-text{padding:clamp(32px,8vw,52px) clamp(20px,6vw,40px); gap:clamp(20px,5vw,30px)}
+    .wb-foot{margin-top:clamp(24px,7vw,40px)}
+    .wb-name{font-size:clamp(2.4rem,9vw,3.4rem)}
   }
+
+  /* stats — black, sits between the highlights band and the work blocks */
+  .stats{padding:clamp(64px,13vh,170px) clamp(18px,5vw,48px); display:grid; grid-template-columns:repeat(4,1fr); gap:44px; background:var(--ink); border-top:1px solid #222}
+  .stat .n{font-family:var(--display); font-weight:800; font-size:clamp(2.6rem,6vw,5rem); line-height:.82; letter-spacing:-0.025em; color:#fff}
+  .stat:first-child .n{color:var(--red)}
+  .stat .l{margin-top:16px; font-family:var(--sans); font-weight:400; text-transform:uppercase; letter-spacing:.16em; font-size:.68rem; color:rgba(255,255,255,.55); max-width:20ch}
+  @media (max-width:860px){ .stats{grid-template-columns:1fr 1fr; gap:40px 32px} }
+
+  /* logos */
+  .logos{padding:clamp(48px,8vh,92px) 0; border-top:1px solid var(--line); text-align:center; overflow:hidden}
+  .logos .eyebrow{display:block; font-size:.85rem; letter-spacing:.24em; color:var(--ink); margin-bottom:clamp(34px,5vh,54px); padding:0 clamp(18px,5vw,48px)}
+  .marquee{overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,#000 90px,#000 calc(100% - 90px),transparent); mask-image:linear-gradient(90deg,transparent,#000 90px,#000 calc(100% - 90px),transparent)}
+  .marquee-row{display:flex; align-items:center; gap:clamp(50px,6vw,92px); width:max-content; animation:logoScroll 40s linear infinite}
+  .marquee:hover .marquee-row{animation-play-state:paused}
+  .marquee-row img{height:clamp(54px,6.5vw,80px); width:auto; flex:none}
+  @keyframes logoScroll{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){ .marquee-row{animation:none; flex-wrap:wrap; justify-content:center; width:auto; padding:0 clamp(18px,5vw,48px)} }
+
+  /* quotes */
+  .quotes{padding:clamp(52px,10vh,130px) clamp(18px,5vw,48px); border-top:1px solid var(--line)}
+  .quotes-title{font-family:var(--display); font-weight:800; text-transform:uppercase; letter-spacing:-0.02em; font-size:clamp(2.2rem,5vw,4rem); line-height:.95; color:var(--ink); text-align:center; margin:0 auto clamp(44px,8vw,80px); max-width:1120px}
+  .quotes-title span{color:var(--red)}
+  .quotes .inner{max-width:1120px; margin:0 auto; display:grid; grid-template-columns:1fr; gap:clamp(40px,7vw,64px)}
+  @media (min-width:760px){
+    .quotes .inner{grid-template-columns:1fr 1fr; column-gap:clamp(48px,6vw,88px)}
+  }
+  .q{padding:0}
+  .q-mark{display:block; font-family:var(--display); font-weight:800; font-size:clamp(3.2rem,6vw,5.2rem); line-height:.6; color:var(--red); margin-bottom:clamp(10px,1.6vw,18px)}
+  .q blockquote{font-family:var(--sans); font-weight:300; font-size:clamp(1.35rem,3.1vw,2.35rem); line-height:1.32; letter-spacing:-0.015em}
+  .q blockquote b{font-weight:500; color:var(--red)}
+  .q figcaption{margin-top:22px; font-family:var(--sans); font-weight:500; text-transform:uppercase; letter-spacing:.16em; font-size:.68rem; color:var(--grey)}
+
+  /* contact */
+  .contact{background:var(--ink); color:#fff; padding:clamp(84px,18vh,220px) clamp(18px,5vw,48px); text-align:center}
+  .contact h2{font-family:var(--display); font-weight:800; text-transform:uppercase; font-size:clamp(2.6rem,9vw,7rem); line-height:.9; letter-spacing:-0.03em}
+  .contact h2 .r{color:var(--red)}
+  .contact p{margin:24px auto 42px; max-width:42ch; font-family:var(--sans); font-weight:300; color:#b9b9b9}
+
+  /* footer */
+  .foot{background:var(--ink); color:#777; padding:0 clamp(18px,5vw,48px) 40px; font-family:var(--sans); font-size:.76rem}
+  .foot-row{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:12px 24px}
+  .foot-credit{margin-top:20px; font-size:.66rem; letter-spacing:.03em; color:#555}
+  .foot a{color:#b9b9b9; text-decoration:none; border-bottom:1px solid var(--red)}
+
+  /* reveal */
+  .js .reveal{opacity:0; transform:translateY(26px)}
+  .js .stag{opacity:0; transform:translateY(22px)}
+  @media (prefers-reduced-motion: reduce){ .reveal, .stag{opacity:1; transform:none} }
 </style>
 </head>
 <body>
 
-<header id="top">
-  <a class="word" href="#top">Devyani Jinturkar</a>
+<div class="scroll-progress" aria-hidden="true"></div>
+
+<div class="nav">
+  <a class="wm" href="#top">Devyani Jinturkar</a>
   <nav>
-    <a href="#top">Home</a>
-    <a href="#work">Portfolio</a>
+    <a href="#work">Work</a>
     <a href="#impact">Results</a>
-    <a href="#testimonials">Testimonials</a>
-    <a class="cta-link" href="#contact">Book a call</a>
+    <a href="#testimonials">Voices</a>
+    <a class="cta" href="#contact">Book a call</a>
   </nav>
+</div>
+
+<header class="hero" id="top">
+  <div class="hero-top">
+    <span class="eyebrow">End-to-end social media for founders &amp; small businesses</span>
+    <span class="eyebrow">USA &middot; Australia &middot; New Zealand &middot; Dubai</span>
+  </div>
+  <h1><span class="r">Audience-first</span><br>social media content.</h1>
+  <div class="hero-bottom">
+    <p>I&rsquo;ll personally work with you to shape the strategy and build content that resonates with your target customers, and grows your brand.</p>
+    <a class="btn" href="mailto:work.with.devyani@gmail.com?subject=Strategy%20call%20enquiry&body=Business%3A%0AGoal%20for%20social%3A%0AChannels%3A%0ALinks%3A%0A">Book a free strategy call &rarr;</a>
+  </div>
 </header>
 
-<main>
-<section class="hero wrap">
-  <span class="eyebrow">End-to-end social media for founders and small businesses</span>
-  <div class="hero-grid">
-    <h1 class="headline">I don&rsquo;t start with content.<br>I start with your <em>audience.</em></h1>
-    <div class="hero-side">
-      <p>I&rsquo;ll personally work with you to shape the strategy and build content that resonates with your target customers, and grows your brand.</p>
-      <a class="btn" href="mailto:work.with.devyani@gmail.com?subject=Strategy%20call%20enquiry&body=Business%3A%0AGoal%20for%20social%3A%0AChannels%3A%0ALinks%3A%0A">Book a free strategy call &rarr;</a>
-    </div>
-  </div>
-  <div class="hero-foot">
-    <span class="locales">Clients across the <b>USA</b> &middot; <b>Australia</b> &middot; <b>New Zealand</b> &middot; <b>Dubai</b></span>
+<section class="reel" aria-label="Portfolio highlights">
+  <div class="reel-row">
+    <figure><video muted loop playsinline preload="none" poster="media/poster-reels.jpg?v=5" data-src="media/highlight-reels.mp4?v=5"></video></figure>
+    <p class="reel-label">Portfolio <span>highlights</span></p>
+    <figure><video muted loop playsinline preload="none" poster="media/poster-static.jpg?v=5" data-src="media/highlight-static.mp4?v=5"></video></figure>
   </div>
 </section>
 
-<section class="wrap" id="work">
-  <div class="section-label">
-    <span class="idx">01</span>
-    <h2>Highlights</h2>
-  </div>
-  <div class="highlights">
-    <figure class="highlight highlight--lead">
-      <div class="frame"><video muted loop playsinline preload="none" poster="media/poster-reels.jpg" data-src="media/highlight-reels.mp4" data-seq="1"></video></div>
-    </figure>
-    <figure class="highlight highlight--sub">
-      <div class="frame"><video muted loop playsinline preload="none" poster="media/poster-static.jpg" data-src="media/highlight-static.mp4" data-seq="2"></video></div>
-    </figure>
-  </div>
-  <p class="highlights-note"><a href="#full-work">See individual client work &darr;</a></p>
+<section class="stats" id="impact">
+  <div class="stat stag"><div class="n" data-count="90" data-suffix="%">90%</div><div class="l">lower cost per click</div></div>
+  <div class="stat stag"><div class="n" data-count="2" data-suffix="&#215;">2&#215;</div><div class="l">reach in a single week</div></div>
+  <div class="stat stag"><div class="n" data-count="8" data-suffix="">8</div><div class="l">brands, wellness to accounting</div></div>
+  <div class="stat stag"><div class="n" data-count="4" data-suffix="">4</div><div class="l">regions served</div></div>
 </section>
 
-<section class="wrap">
-  <div class="section-label">
-    <span class="idx">02</span>
-    <h2>Trusted across industries</h2>
-  </div>
-  <div class="wall">
-    <div class="wall-row a">
-      <img src="media/logo-sothebys-nz.png" alt="NZ Sotheby's"><img src="media/logo-strider.png" alt="Strider"><img src="media/logo-monarch-wellness.png" alt="Monarch Wellness"><img src="media/logo-velvey-chocolate.png" alt="Velvey Chocolates"><img src="media/logo-ea-accounting.png" alt="EA Accounting Solutions"><img src="media/logo-romania-spa.png" alt="Romania Relaxing Spa Bath"><img src="media/logo-mikenia.png" alt="Mikenia"><img src="media/logo-freesol-kids.png" alt="Freesol Kids">
-      <img src="media/logo-sothebys-nz.png" alt="" aria-hidden="true"><img src="media/logo-strider.png" alt="" aria-hidden="true"><img src="media/logo-monarch-wellness.png" alt="" aria-hidden="true"><img src="media/logo-velvey-chocolate.png" alt="" aria-hidden="true"><img src="media/logo-ea-accounting.png" alt="" aria-hidden="true"><img src="media/logo-romania-spa.png" alt="" aria-hidden="true"><img src="media/logo-mikenia.png" alt="" aria-hidden="true"><img src="media/logo-freesol-kids.png" alt="" aria-hidden="true">
-    </div>
-  </div>
-</section>
+<main id="work">
 
-<section class="wrap" id="impact">
-  <div class="section-label">
-    <span class="idx">03</span>
-    <h2>By the numbers</h2>
-  </div>
-  <div class="stats">
-    <div class="stat">
-      <div class="fig">90%</div>
-      <p class="desc">lower cost per click</p>
+  <section class="wb reveal">
+    <div class="wb-media"><div class="vidbox"><video muted loop playsinline preload="none" poster="media/poster-monarch.jpg" data-src="media/monarch.mp4"></video></div></div>
+    <div class="wb-text">
+      <div class="wb-head"><span class="wb-idx">01</span><h2 class="wb-name">Monarch Wellness</h2></div>
+      <div class="wb-foot"><p class="wb-meta">Mental health &middot; USA</p><span class="wb-tag">Brand awareness campaign</span></div>
     </div>
-    <div class="stat">
-      <div class="fig">2&#215;</div>
-      <p class="desc">reach in a single week</p>
-    </div>
-    <div class="stat">
-      <div class="fig">8</div>
-      <p class="desc">brands, wellness to accounting</p>
-    </div>
-    <div class="stat">
-      <div class="fig">4</div>
-      <p class="desc">regions served</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="wrap" id="testimonials">
-  <div class="section-label"><span class="idx">04</span><h2>What clients say</h2></div>
-  <div class="quotes">
-    <figure class="quote">
-      <div class="rating" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <blockquote>&ldquo;Devyani was great to work with. Will definitely be working with her again. She was responsive and cooperative.&rdquo;</blockquote>
-      <figcaption>Kathy &middot; Monarch Wellness <span class="via">via Fiverr</span></figcaption>
-    </figure>
-    <figure class="quote">
-      <div class="rating" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <blockquote>&ldquo;Professional, reliable and proactive throughout. Communicated well, completed tasks on time.&rdquo;</blockquote>
-      <figcaption>EA Accounting Solutions &middot; Melbourne <span class="via">via Upwork</span></figcaption>
-    </figure>
-    <figure class="quote">
-      <div class="rating" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <blockquote>&ldquo;Top quality work every time. Highly recommended.&rdquo;</blockquote>
-      <figcaption>Lorenzo Scartozzi &middot; Sotheby's Realty <span class="via">via Fiverr</span></figcaption>
-    </figure>
-    <figure class="quote">
-      <div class="rating" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <blockquote>&ldquo;Exceeded expectations.&rdquo;</blockquote>
-      <figcaption>Roushan Kumar &middot; Velvey Chocolates <span class="via">via Fiverr</span></figcaption>
-    </figure>
-  </div>
-</section>
+  <section class="wb reveal">
+    <div class="wb-media"><div class="vidbox"><video muted loop playsinline preload="none" poster="media/poster-velvey.jpg" data-src="media/velvey.mp4"></video></div></div>
+    <div class="wb-text">
+      <div class="wb-head"><span class="wb-idx">02</span><h2 class="wb-name">Velvey Chocolates</h2></div>
+      <div class="wb-foot"><p class="wb-meta">Food &amp; beverage &middot; USA</p><span class="wb-tag">Product launch campaign</span></div>
+    </div>
+  </section>
 
-<section class="wrap" id="full-work">
-  <div class="section-label">
-    <span class="idx">05</span>
-    <h2>Individual client work</h2>
-  </div>
-  <div class="grid">
-    <figure class="tile"><div class="tile-vid"><video muted loop playsinline preload="none" data-src="media/monarch.mp4"></video></div><figcaption>Monarch Wellness<span class="tag">Mental health &middot; USA</span></figcaption></figure>
-    <figure class="tile"><div class="tile-vid"><video muted loop playsinline preload="none" data-src="media/velvey.mp4"></video></div><figcaption>Velvey Chocolates<span class="tag">Food &amp; beverage &middot; USA</span></figcaption></figure>
-    <figure class="tile"><div class="tile-vid"><video muted loop playsinline preload="none" data-src="media/mikenia.mp4"></video></div><figcaption>Mikenia<span class="tag">Fashion &middot; USA</span></figcaption></figure>
-    <figure class="tile"><div class="tile-vid"><video muted loop playsinline preload="none" data-src="media/strider.mp4"></video></div><figcaption>Strider<span class="tag">Kids products &middot; Dubai</span></figcaption></figure>
-    <figure class="tile"><div class="tile-vid"><video muted loop playsinline preload="none" data-src="media/wok.mp4"></video></div><figcaption>Wok to Bowl: Subway Poster<span class="tag">Food &amp; beverage &middot; USA</span></figcaption></figure>
-    <figure class="tile"><div class="tile-vid"><video muted loop playsinline preload="none" data-src="media/messy.mp4"></video></div><figcaption>EA Accounting Solutions<span class="tag">B2B accounting &middot; Australia</span></figcaption></figure>
-    <figure class="tile"><div class="tile-vid"><video muted loop playsinline preload="none" data-src="media/memorial.mp4"></video></div><figcaption>Wok to Bowl: Memorial Day<span class="tag">Food &amp; beverage &middot; USA</span></figcaption></figure>
-    <figure class="tile"><div class="tile-vid"><video muted loop playsinline preload="none" data-src="media/lorenzo.mp4"></video></div><figcaption>NZ Sotheby&rsquo;s<span class="tag">Real estate &middot; New Zealand</span></figcaption></figure>
-  </div>
-</section>
+  <section class="wb reveal">
+    <div class="wb-media"><div class="vidbox"><video muted loop playsinline preload="none" poster="media/poster-mikenia.jpg" data-src="media/mikenia.mp4"></video></div></div>
+    <div class="wb-text">
+      <div class="wb-head"><span class="wb-idx">03</span><h2 class="wb-name">Mikenia</h2></div>
+      <div class="wb-foot"><p class="wb-meta">Fashion &middot; USA</p><span class="wb-tag">Product marketing campaign</span></div>
+    </div>
+  </section>
+
+  <section class="wb reveal">
+    <div class="wb-media"><div class="vidbox"><video muted loop playsinline preload="none" poster="media/poster-strider.jpg" data-src="media/strider.mp4"></video></div></div>
+    <div class="wb-text">
+      <div class="wb-head"><span class="wb-idx">04</span><h2 class="wb-name">Strider</h2></div>
+      <div class="wb-foot"><p class="wb-meta">Kids products &middot; Dubai</p><span class="wb-tag">Dubai market launch campaign</span></div>
+    </div>
+  </section>
+
+  <section class="wb reveal">
+    <div class="wb-media"><div class="vidbox"><video muted loop playsinline preload="none" poster="media/poster-wok.jpg" data-src="media/wok.mp4"></video></div></div>
+    <div class="wb-text">
+      <div class="wb-head"><span class="wb-idx">05</span><h2 class="wb-name">Wok to Bowl</h2></div>
+      <div class="wb-foot"><p class="wb-meta">Food &amp; beverage &middot; USA</p><span class="wb-tag">Mother&rsquo;s Day promotional campaign</span></div>
+    </div>
+  </section>
+
+  <section class="wb reveal">
+    <div class="wb-media"><div class="vidbox"><video muted loop playsinline preload="none" poster="media/poster-messy.jpg" data-src="media/messy.mp4"></video></div></div>
+    <div class="wb-text">
+      <div class="wb-head"><span class="wb-idx">06</span><h2 class="wb-name">EA Accounting Solutions</h2></div>
+      <div class="wb-foot"><p class="wb-meta">B2B accounting &middot; Australia</p><span class="wb-tag">Meta ads campaign &middot; Sales objective</span></div>
+    </div>
+  </section>
+
+  <section class="wb reveal">
+    <div class="wb-media"><div class="vidbox"><video muted loop playsinline preload="none" poster="media/poster-memorial.jpg" data-src="media/memorial.mp4"></video></div></div>
+    <div class="wb-text">
+      <div class="wb-head"><span class="wb-idx">07</span><h2 class="wb-name">Wok to Bowl</h2></div>
+      <div class="wb-foot"><p class="wb-meta">Food &amp; beverage &middot; USA</p><span class="wb-tag">Memorial Day promotional campaign</span></div>
+    </div>
+  </section>
+
+  <section class="wb reveal">
+    <div class="wb-media"><div class="vidbox"><video muted loop playsinline preload="none" poster="media/poster-lorenzo.jpg" data-src="media/lorenzo.mp4"></video></div></div>
+    <div class="wb-text">
+      <div class="wb-head"><span class="wb-idx">08</span><h2 class="wb-name">NZ Sotheby&rsquo;s</h2></div>
+      <div class="wb-foot"><p class="wb-meta">Real estate &middot; New Zealand</p><span class="wb-tag">Meta ads campaign &middot; Lead generation</span></div>
+    </div>
+  </section>
+
+  <section class="logos reveal">
+    <span class="eyebrow">Trusted across industries</span>
+    <div class="marquee">
+      <div class="marquee-row">
+        <img src="media/logo-sothebys-nz.png" alt="NZ Sotheby's"><img src="media/logo-strider.png" alt="Strider"><img src="media/logo-monarch-wellness.png" alt="Monarch Wellness"><img src="media/logo-velvey-chocolate.png" alt="Velvey Chocolates"><img src="media/logo-ea-accounting.png" alt="EA Accounting Solutions"><img src="media/logo-romania-spa.png" alt="Romania Relaxing Spa Bath"><img src="media/logo-mikenia.png" alt="Mikenia"><img src="media/logo-freesol-kids.png" alt="Freesol Kids">
+        <img src="media/logo-sothebys-nz.png" alt="" aria-hidden="true"><img src="media/logo-strider.png" alt="" aria-hidden="true"><img src="media/logo-monarch-wellness.png" alt="" aria-hidden="true"><img src="media/logo-velvey-chocolate.png" alt="" aria-hidden="true"><img src="media/logo-ea-accounting.png" alt="" aria-hidden="true"><img src="media/logo-romania-spa.png" alt="" aria-hidden="true"><img src="media/logo-mikenia.png" alt="" aria-hidden="true"><img src="media/logo-freesol-kids.png" alt="" aria-hidden="true">
+      </div>
+    </div>
+  </section>
+
+  <section class="quotes" id="testimonials">
+    <p class="quotes-title stag">Client <span>voices</span></p>
+    <div class="inner">
+      <figure class="q stag">
+        <span class="q-mark" aria-hidden="true">&ldquo;</span>
+        <blockquote>Devyani was great to work with. Will definitely be working with her again. She was <b>responsive and cooperative.</b></blockquote>
+        <figcaption>Kathy &middot; Monarch Wellness &middot; via Fiverr</figcaption>
+      </figure>
+      <figure class="q stag">
+        <span class="q-mark" aria-hidden="true">&ldquo;</span>
+        <blockquote>Professional, reliable and proactive throughout. <b>Communicated well, completed tasks on time.</b></blockquote>
+        <figcaption>EA Accounting Solutions &middot; Melbourne &middot; via Upwork</figcaption>
+      </figure>
+      <figure class="q stag">
+        <span class="q-mark" aria-hidden="true">&ldquo;</span>
+        <blockquote><b>Top quality work every time.</b> Highly recommended.</blockquote>
+        <figcaption>Lorenzo Scartozzi &middot; Sotheby&rsquo;s Realty &middot; via Fiverr</figcaption>
+      </figure>
+      <figure class="q stag">
+        <span class="q-mark" aria-hidden="true">&ldquo;</span>
+        <blockquote><b>Exceeded expectations.</b></blockquote>
+        <figcaption>Roushan Kumar &middot; Velvey Chocolates &middot; via Fiverr</figcaption>
+      </figure>
+    </div>
+  </section>
+
 </main>
 
-<section class="cta-band" id="contact">
-  <div class="wrap">
-    <h2>Ready to put your brand on this list?</h2>
-    <p>Free, and I reply within one business day.</p>
-    <a class="btn" href="mailto:work.with.devyani@gmail.com?subject=Strategy%20call%20enquiry&body=Business%3A%0AGoal%20for%20social%3A%0AChannels%3A%0ALinks%3A%0A">Schedule a 30-minute strategy call &rarr;</a>
-  </div>
+<section class="contact" id="contact">
+  <h2 class="stag">Ready to put your brand<br>on <span class="r">this list?</span></h2>
+  <p class="stag">Free, and I reply within one business day.</p>
+  <a class="btn stag" href="mailto:work.with.devyani@gmail.com?subject=Strategy%20call%20enquiry&body=Business%3A%0AGoal%20for%20social%3A%0AChannels%3A%0ALinks%3A%0A">Schedule a 30-minute strategy call &rarr;</a>
 </section>
 
-<footer class="wrap">
-  <span>Devyani Jinturkar &middot; Social media marketing for founders and small businesses</span>
-  <span><a href="mailto:work.with.devyani@gmail.com">work.with.devyani@gmail.com</a><br><span class="fine">&copy; 2026 Devyani Jinturkar</span></span>
+<footer class="foot">
+  <div class="foot-row">
+    <span>Devyani Jinturkar &middot; Social media marketing for founders and small businesses</span>
+    <span><a href="mailto:work.with.devyani@gmail.com">work.with.devyani@gmail.com</a> &middot; &copy; 2026</span>
+  </div>
+  <p class="foot-credit">Site designed &amp; built by Devyani Jinturkar</p>
 </footer>
 
 <script>
+document.documentElement.classList.add('js');
 (function(){
-  var support = 'IntersectionObserver' in window;
+  var io = 'IntersectionObserver' in window;
 
-  // work-grid tiles: simple play-on-visible, pause off-screen
-  var tiles = document.querySelectorAll('.tile video[data-src]');
-  if (support) {
-    var tileIO = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
+  // videos: load + play on view, pause off view
+  var vids = document.querySelectorAll('video[data-src]');
+  if (io){
+    var vObs = new IntersectionObserver(function(es){
+      es.forEach(function(e){
         var v = e.target;
-        if (e.isIntersecting) {
-          if (!v.src) v.src = v.dataset.src;
-          v.play().catch(function(){});
-        } else if (!v.paused) { v.pause(); }
+        if (e.isIntersecting){ if(!v.src) v.src = v.dataset.src; v.play().catch(function(){}); }
+        else if (!v.paused){ v.pause(); }
       });
-    }, {threshold:.25, rootMargin:'200px 0px'});
-    tiles.forEach(function(v){ tileIO.observe(v); });
+    }, {threshold:.3, rootMargin:'250px 0px'});
+    vids.forEach(function(v){ vObs.observe(v); });
   } else {
-    tiles.forEach(function(v){ v.src = v.dataset.src; });
-  }
-
-  // highlights: posters hold the frame; videos load ONE AT A TIME
-  var seq = [].slice.call(document.querySelectorAll('.highlight video[data-seq]'))
-              .sort(function(a,b){ return a.dataset.seq - b.dataset.seq; });
-  function loadNext(i){
-    var v = seq[i];
-    if (!v) return;
-    if (!v.src) v.src = v.dataset.src;
-    var go = function(){ v.removeEventListener('loadeddata', go); loadNext(i + 1); };
-    v.addEventListener('loadeddata', go);
-    v.play().catch(function(){});
-  }
-  var started = false;
-  function startSeq(){ if (!started){ started = true; loadNext(0); } }
-
-  if (support && seq.length) {
-    var hlIO = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        var v = e.target;
-        if (e.isIntersecting) { startSeq(); if (v.src) v.play().catch(function(){}); }
-        else if (!v.paused) { v.pause(); }
-      });
-    }, {threshold:.2, rootMargin:'300px 0px'});
-    seq.forEach(function(v){ hlIO.observe(v); });
-  } else {
-    startSeq();
+    vids.forEach(function(v){ v.src = v.dataset.src; });
   }
 })();
+</script>
+
+<script type="module">
+import { animate, inView, scroll, stagger } from "https://cdn.jsdelivr.net/npm/motion@13.2.0/+esm";
+
+var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// scroll-triggered reveal — Motion inView + spring-eased fade/rise
+var revs = document.querySelectorAll('.reveal');
+if (reduceMotion) {
+  revs.forEach(function(el){ el.style.opacity = 1; el.style.transform = 'none'; });
+} else {
+  revs.forEach(function(el){
+    inView(el, function(){
+      animate(el, { opacity: [0, 1], y: [26, 0] }, { duration: 0.8, easing: [0.16, 1, 0.3, 1] });
+    }, { amount: 0.12, margin: '0px 0px -8% 0px' });
+  });
+}
+
+// staggered text reveal — non-video sections only (testimonials, closing CTA).
+// Highlights band + all 8 work-block reels are untouched — this is separate from the generic .reveal above.
+if (reduceMotion) {
+  document.querySelectorAll('.stag').forEach(function(el){ el.style.opacity = 1; el.style.transform = 'none'; });
+} else {
+  var staggerIn = function(sectionSelector, itemSelector, staggerStep){
+    var section = document.querySelector(sectionSelector);
+    if (!section) return;
+    inView(section, function(){
+      animate(itemSelector, { opacity: [0, 1], y: [22, 0] }, { duration: 0.7, delay: stagger(staggerStep), easing: [0.16, 1, 0.3, 1] });
+    }, { amount: 0.2 });
+  };
+  staggerIn('.quotes', '.quotes .stag', 0.09);
+  staggerIn('.contact', '.contact .stag', 0.12);
+}
+
+// scroll progress bar — pinned to the top of the viewport, fills left to right across the whole page.
+// Kept outside the reduceMotion gate: it's a 1:1 functional indicator tied directly to scroll, not a decorative flourish.
+var progressBar = document.querySelector('.scroll-progress');
+if (progressBar) {
+  scroll(animate(progressBar, { scaleX: [0, 1] }, { ease: 'linear' }));
+}
+
+// #impact — one shared trigger for both effects on this section (stagger the stat blocks in, count each number up).
+var impactEl = document.querySelector('#impact');
+if (impactEl) {
+  var impactNums = impactEl.querySelectorAll('.stat .n[data-count]');
+  if (reduceMotion) {
+    impactNums.forEach(function(n){ n.textContent = n.dataset.count + (n.dataset.suffix || ''); });
+  } else {
+    inView(impactEl, function(){
+      animate('#impact .stag', { opacity: [0, 1], y: [22, 0] }, { duration: 0.7, delay: stagger(0.1), easing: [0.16, 1, 0.3, 1] });
+      impactNums.forEach(function(n){
+        var target = parseFloat(n.dataset.count);
+        var suffix = n.dataset.suffix || '';
+        if (isNaN(target)) return;
+        n.textContent = '0' + suffix;
+        animate(0, target, {
+          duration: 1.4,
+          easing: [0.16, 1, 0.3, 1],
+          onUpdate: function(v){ n.textContent = Math.round(v) + suffix; }
+        });
+      });
+    }, { amount: 0.25 });
+  }
+}
 </script>
 
 </body>
