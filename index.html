@@ -90,7 +90,7 @@
   @media (max-width:680px){ .nav nav a:not(.cta){display:none} }
 
   /* hero */
-  .hero{min-height:calc(90vh - 53px); display:flex; flex-direction:column; justify-content:space-between; padding:clamp(40px,9vh,110px) clamp(18px,5vw,48px) clamp(30px,6vh,60px)}
+  .hero{min-height:calc(90vh - 53px); min-height:calc(90dvh - 53px); display:flex; flex-direction:column; justify-content:space-between; padding:clamp(40px,9vh,110px) clamp(18px,5vw,48px) clamp(30px,6vh,60px)}
   .hero-top{display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap}
   .hero h1{font-family:var(--display); font-weight:800; text-transform:uppercase; font-size:clamp(2.9rem,11vw,9.5rem); line-height:.88; letter-spacing:-0.03em; margin:clamp(28px,6vh,64px) 0}
   .hero h1 .r{color:var(--red)}
@@ -107,8 +107,8 @@
   .reel-label span{color:var(--red)}
   @media (max-width:860px){
     .reel-row{flex-direction:column; align-items:center; gap:clamp(22px,6vw,34px); padding-inline:clamp(16px,5vw,32px)}
-    .reel figure{height:74vh}
-    .reel-label{writing-mode:horizontal-tb; transform:none; font-size:clamp(2.2rem,9vw,3.4rem); padding:clamp(6px,2vw,14px) 0}
+    .reel figure{height:min(74vh,100vw); height:min(74dvh,100vw)}
+    .reel-label{writing-mode:horizontal-tb; transform:none; white-space:normal; font-size:clamp(1.8rem,7vw,2.6rem); padding:clamp(6px,2vw,14px) 0}
   }
 
   /* work blocks — whole reel on a black gallery field */
@@ -128,7 +128,7 @@
   @media (max-width:860px){
     .wb, .wb:nth-child(even){grid-template-columns:1fr; min-height:0}
     .wb:nth-child(even) .wb-media{order:0}
-    .wb-media .vidbox{height:70vh; aspect-ratio:9/16; width:auto}
+    .wb-media .vidbox{height:70vh; height:70dvh; aspect-ratio:9/16; width:auto}
     .wb-text{padding:clamp(32px,8vw,52px) clamp(20px,6vw,40px); gap:clamp(20px,5vw,30px)}
     .wb-foot{margin-top:clamp(24px,7vw,40px)}
     .wb-name{font-size:clamp(2.4rem,9vw,3.4rem)}
