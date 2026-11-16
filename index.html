@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Devyani Jinturkar | Social Media Marketing for Founders &amp; Small Businesses</title>
+<title>Devyani Jinturkar | Creative Strategy for Growing Brands</title>
 <meta name="description" content="Devyani Jinturkar builds social media strategy from scratch for founders and small businesses. End to end, from goals and strategy to content that resonates with your customers. Book a free strategy call.">
 <link rel="canonical" href="https://devyanijinturkar.com/">
 <meta name="author" content="Devyani Jinturkar">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Devyani Jinturkar">
-<meta property="og:title" content="Devyani Jinturkar | Social Media Marketing for Founders &amp; Small Businesses">
+<meta property="og:title" content="Devyani Jinturkar | Creative Strategy for Growing Brands">
 <meta property="og:description" content="Social media strategy built from scratch, so your content resonates with your target customers and grows your brand.">
 <meta property="og:url" content="https://devyanijinturkar.com/">
 <meta property="og:image" content="https://devyanijinturkar.com/assets/og-cover.png">
@@ -96,7 +96,7 @@
   /* hero */
   .hero{min-height:calc(90vh - 53px); min-height:calc(90dvh - 53px); display:flex; flex-direction:column; justify-content:space-between; padding:clamp(40px,9vh,110px) clamp(18px,5vw,48px) clamp(30px,6vh,60px)}
   .hero-top{display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap}
-  .hero h1{font-family:var(--display); font-weight:800; text-transform:uppercase; font-size:clamp(2.9rem,11vw,9.5rem); line-height:.88; letter-spacing:-0.03em; margin:clamp(28px,6vh,64px) 0}
+  .hero h1{font-family:var(--display); font-weight:800; text-transform:uppercase; font-size:clamp(2.5rem,8.4vw,7.6rem); line-height:.9; letter-spacing:-0.03em; margin:clamp(28px,6vh,64px) 0; text-wrap:balance}
   .hero h1 .r{color:var(--red)}
   .hero-bottom{display:flex; justify-content:space-between; align-items:flex-end; gap:28px 40px; flex-wrap:wrap}
   .hero-bottom p{max-width:40ch; font-family:var(--sans); font-weight:300; font-size:clamp(1rem,1.4vw,1.15rem); color:#333}
@@ -203,10 +203,10 @@
 
 <header class="hero" id="top">
   <div class="hero-top">
-    <span class="eyebrow">End-to-end social media for founders &amp; small businesses</span>
+    <span class="eyebrow">Content, campaigns and ad creative for founders and small business owners</span>
     <span class="eyebrow">USA &middot; Australia &middot; New Zealand &middot; Dubai</span>
   </div>
-  <h1><span class="r">Audience-first</span><br>social media content.</h1>
+  <h1 id="hero-headline"><span class="r">Audience-first</span><br>creative strategy for growing brands.</h1>
   <div class="hero-bottom">
     <p>I&rsquo;ll personally work with you to shape the strategy and build content that resonates with your target customers, and grows your brand.</p>
     <a class="btn" href="mailto:work.with.devyani@gmail.com?subject=Strategy%20call%20enquiry&body=Business%3A%0AGoal%20for%20social%3A%0AChannels%3A%0ALinks%3A%0A">Book a free strategy call &rarr;</a>
@@ -340,12 +340,26 @@
 
 <footer class="foot">
   <div class="foot-row">
-    <span>Devyani Jinturkar &middot; Social media marketing for founders and small businesses</span>
+    <span>Devyani Jinturkar &middot; Social media and ad creative for founders and growing brands</span>
     <span><a href="mailto:work.with.devyani@gmail.com">work.with.devyani@gmail.com</a> &middot; &copy; 2026</span>
   </div>
   <p class="foot-credit">Site designed &amp; built by Devyani Jinturkar</p>
 </footer>
 
+<script>
+// HERO HEADLINE: change it here. The first word is set in orange.
+// The same text is also written statically in the <h1> so search engines and
+// share previews see it without JavaScript; keep the two in step.
+var HERO_HEADLINE = "Audience-first creative strategy for growing brands.";
+(function(){
+  var h = document.getElementById('hero-headline');
+  var m = HERO_HEADLINE.match(/^(\S+)\s+([\s\S]*)$/);
+  if (!h || !m) return;
+  var r = document.createElement('span'); r.className = 'r'; r.textContent = m[1];
+  h.textContent = '';
+  h.appendChild(r); h.appendChild(document.createElement('br')); h.appendChild(document.createTextNode(m[2]));
+})();
+</script>
 <script>
 document.documentElement.classList.add('js');
 (function(){
